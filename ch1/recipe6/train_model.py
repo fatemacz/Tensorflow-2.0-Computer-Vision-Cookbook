@@ -24,6 +24,18 @@ from keras.src.models import Model
 from keras.src.utils import plot_model
 
 
+# # just checking available styles
+# print (plt.style.available)
+# [
+#     'Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 
+#     'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 
+#     'petroff10', 'seaborn-v0_8', 'seaborn-v0_8-bright', 'seaborn-v0_8-colorblind', 'seaborn-v0_8-dark', 
+#     'seaborn-v0_8-dark-palette', 'seaborn-v0_8-darkgrid', 'seaborn-v0_8-deep', 'seaborn-v0_8-muted', 
+#     'seaborn-v0_8-notebook', 'seaborn-v0_8-paper', 'seaborn-v0_8-pastel', 'seaborn-v0_8-poster', 
+#     'seaborn-v0_8-talk', 'seaborn-v0_8-ticks', 'seaborn-v0_8-white', 'seaborn-v0_8-whitegrid', 'tableau-colorblind10'
+# ]
+
+
 # Define a function that will load and prepare the dataset. 
 # It will normalize the data, one-hot encode the labels, 
 # take a portion of the training set for validation, 
@@ -98,7 +110,7 @@ def build_network():
 # Define a function that takes a model's training history, along with a metric of interest, 
 # to create a plot corresponding to the training and validation of the curves of such a metric:
 def plot_model_history(model_history, metric, ylim=None):
-    plt.style.use('seaborn-darkgrid')
+    plt.style.use('seaborn-v0_8-darkgrid')
     plotter = tfdocs.plots.HistoryPlotter()
     plotter.plot({'Model': model_history}, metric=metric)
 
