@@ -1,11 +1,26 @@
+# Import the necessary packages:
+import json
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer
-from tensorflow.keras.datasets import mnist
-from tensorflow.keras.layers import *
-from tensorflow.keras.models import *
 
+from keras.api.datasets import mnist
+from keras.src.models import Model
 
+from keras.src.layers import BatchNormalization
+from keras.src.layers import Conv2D
+from keras.src.layers import Dense
+from keras.src.layers import Dropout
+from keras.src.layers import Flatten
+from keras.src.layers import Input
+from keras.src.layers import MaxPooling2D
+from keras.src.layers import ReLU
+from keras.src.layers import Softmax
+
+from keras.src.saving import load_model
+from keras.src.models.model import model_from_json
+
+# Define a function that will download and prepare the data by normalizing the train and test sets and one-hot encoding the labels:
 def load_data():
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
@@ -25,6 +40,8 @@ def load_data():
     return X_train, y_train, X_test, y_test
 
 
+# Define a function for building a network. 
+# The architecture comprises a single convolutional layer and two fully connected layers:
 def build_network():
     input_layer = Input(shape=(28, 28, 1), name='input_layer')
     convolution_1 = Conv2D(kernel_size=(2, 2),
@@ -51,11 +68,13 @@ def build_network():
     return network
 
 
+# Implement a function that will evaluate a network using the test set:
 def evaluate(model, X_test, y_test):
     _, accuracy = model.evaluate(X_test, y_test, verbose=0)
     print(f'Accuracy: {accuracy}')
 
 
+# Prepare the data, create a validation split, and instantiate the neural network:
 print('Loading and pre-processing data.')
 X_train, y_train, X_test, y_test = load_data()
 
@@ -65,11 +84,16 @@ X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, train_si
 # Build network.
 model = build_network()
 
-# Compile and train model.
+
+# Compile and train the model for 50 epochs, with a batch size of 1024. 
+# Feel free to tune these values according to the capacity of your machine:
 print('Training network...')
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(X_train, y_train, validation_data=(X_valid, y_valid), epochs=40, batch_size=1024)
 
+
+# Save the model, along with its weights, in HDF5 format using the save() method. 
+# Then, load the persisted model using load_model() and evaluate the network's performance on the test set:
 print('Saving model and weights as HDF5.')
 model.save('model_and_weights.hdf5')
 
