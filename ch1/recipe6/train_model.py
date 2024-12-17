@@ -151,6 +151,9 @@ model_history = model.fit(train_dataset, validation_data=val_dataset, epochs=EPO
 
 
 # Plot the training and validation loss and accuracy:
+import os
+# os.environ['PATH'] += os.pathsep + r'<Change your Path to>\Graphviz-12.2.1-win64\bin'
+
 plot_model_history(model_history, 'loss', [0., 2.0])
 plot_model_history(model_history, 'accuracy')
 plot_model(model, show_shapes=True, show_layer_names=True, to_file='model.png')
