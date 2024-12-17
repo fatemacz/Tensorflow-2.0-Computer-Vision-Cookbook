@@ -1,4 +1,5 @@
 # Import the necessary packages:
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
@@ -119,8 +120,11 @@ def plot_model_history(model_history, metric, ylim=None):
         plt.ylim([0, 1])
     else:
         plt.ylim(ylim)
+    
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    image_path = os.path.join(script_dir, f'{metric}.png')
 
-    plt.savefig(f'{metric}.png')
+    plt.savefig(image_path)
     plt.close()
 
 
@@ -151,19 +155,24 @@ model_history = model.fit(train_dataset, validation_data=val_dataset, epochs=EPO
 
 
 # Plot the training and validation loss and accuracy:
-import os
-# os.environ['PATH'] += os.pathsep + r'<Change your Path to>\Graphviz-12.2.1-win64\bin'
-
 plot_model_history(model_history, 'loss', [0., 2.0])
 plot_model_history(model_history, 'accuracy')
-plot_model(model, show_shapes=True, show_layer_names=True, to_file='model.png')
+
+# TODO: Uncomment and edit the following line to save the model image.
+# os.environ['PATH'] += os.pathsep + r'<Change your Path to>\Graphviz-12.2.1-win64\bin'
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+model_image_path = os.path.join(script_dir, 'model.png')
+plot_model(model, show_shapes=True, show_layer_names=True, to_file=model_image_path)
 
 
 # Save the model:
-model.save('model.hdf5')
+# model_path = os.path.join(script_dir, 'model.hdf5')
+model_path = os.path.join(script_dir, 'model.keras')
+model.save(model_path)
 
 
 # Load and evaluate the model:
-loaded_model = load_model('model.hdf5')
+loaded_model = load_model(model_path)
 results = loaded_model.evaluate(test_dataset)
 print(f'Loss: {results[0]}, Accuracy: {results[1]}')

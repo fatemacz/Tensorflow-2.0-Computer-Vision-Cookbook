@@ -1,4 +1,5 @@
 # Import the necessary packages:
+import os
 import json
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -92,13 +93,17 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 model.fit(X_train, y_train, validation_data=(X_valid, y_valid), epochs=40, batch_size=1024)
 
 
-# Save the model, along with its weights, in HDF5 format using the save() method. 
+# Save the model, along with its weights, in .keras format using the save() method. 
 # Then, load the persisted model using load_model() and evaluate the network's performance on the test set:
-print('Saving model and weights as HDF5.')
-model.save('model_and_weights.hdf5')
+print('Saving model and weights as .keras.')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# model_path = os.path.join(script_dir, 'model_and_weights.hdf5')
+model_path = os.path.join(script_dir, 'model_and_weights.keras')
 
-print('Loading model and weights as HDF5.')
-loaded_model = load_model('model_and_weights.hdf5')
+model.save(model_path)
+
+print('Loading model and weights as .keras.')
+loaded_model = load_model(model_path)
 
 print('Evaluating using loaded model.')
 evaluate(loaded_model, X_test, y_test)

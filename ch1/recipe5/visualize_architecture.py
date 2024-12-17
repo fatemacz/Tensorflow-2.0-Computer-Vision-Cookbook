@@ -72,9 +72,13 @@ print(model.summary())
 
 # Plot a diagram of the network's architecture:
 import os
+# TODO: Uncomment and edit the following line to save the model image.
 # os.environ['PATH'] += os.pathsep + r'<Change your Path to>\Graphviz-12.2.1-win64\bin'
 
-plot_model(model, show_shapes=True, show_layer_names=True, to_file='my_model.jpg')
+script_dir = os.path.dirname(os.path.abspath(__file__))
+image_path = os.path.join(script_dir, 'my_model.jpg')
 
-model_diagram = Image.open('my_model.jpg')
+plot_model(model, show_shapes=True, show_layer_names=True, to_file=image_path)
+
+model_diagram = Image.open(image_path)
 model_diagram.show()
