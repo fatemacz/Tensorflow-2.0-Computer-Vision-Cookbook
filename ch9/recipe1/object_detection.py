@@ -2,7 +2,7 @@
 import cv2
 import imutils
 import numpy as np
-from tensorflow.keras.applications import imagenet_utils
+from keras.api.applications import imagenet_utils
 from tensorflow.keras.applications.inception_resnet_v2 \
     import *
 from tensorflow.keras.preprocessing.image import img_to_array

@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
-from tensorflow.keras import Model
+from keras.api.models import Model
 from tensorflow.keras.datasets import fashion_mnist
-from tensorflow.keras.layers import *
+from keras.src.layers import *
 
 
 def build_autoencoder(input_shape=(28, 28, 1),

@@ -4,9 +4,9 @@ from glob import glob
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer
-from tensorflow.keras import Model
-from tensorflow.keras.layers import *
-from tensorflow.keras.preprocessing.image import *
+from keras.api.models import Model
+from keras.src.layers import *
+from keras.api.preprocessing.image import *
 
 
 def load_images_and_labels(image_paths, target_size=(64, 64)):

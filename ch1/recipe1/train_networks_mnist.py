@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelBinarizer
 from keras.src.layers import Input
 from keras.api.datasets import mnist
 from keras.src.layers import Dense
-from keras.src.models import Sequential, Model
+from keras.api.models import Sequential, Model
 
 # Create a model using the Sequential API by passing a list of layers to the Sequential constructor. 
 # The numbers in each layer correspond to the number of neurons or units it contains:

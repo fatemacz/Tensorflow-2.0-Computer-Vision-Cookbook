@@ -21,7 +21,7 @@ from keras.src.layers import MaxPooling2D
 from keras.src.layers import Softmax
 
 from keras.src.saving import load_model
-from keras.src.models import Model
+from keras.api.models import Model
 from keras.src.utils import plot_model
 
 

@@ -7,8 +7,8 @@ from string import punctuation
 import numpy as np
 import tqdm
 from tensorflow.keras.applications.vgg16 import *
-from tensorflow.keras.layers import *
-from tensorflow.keras.preprocessing.image import *
+from keras.src.layers import *
+from keras.api.preprocessing.image import *
 from tensorflow.keras.preprocessing.sequence import \
     pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer

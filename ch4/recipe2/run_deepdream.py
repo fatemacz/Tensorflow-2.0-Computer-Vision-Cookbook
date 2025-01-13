@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from tensorflow.keras.preprocessing.image import *
+from keras.api.preprocessing.image import *
 
 from ch4.recipe1.deepdream import DeepDreamer
 

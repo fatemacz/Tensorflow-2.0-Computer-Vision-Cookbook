@@ -4,10 +4,10 @@ from glob import glob
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-from tensorflow.keras import Model
-from tensorflow.keras.layers import *
+from keras.api.models import Model
+from keras.src.layers import *
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.preprocessing.image import *
+from keras.api.preprocessing.image import *
 
 
 def build_srcnn(height, width, depth):

@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras import Model
+from keras.api.models import Model
 from tensorflow.keras.applications.vgg19 import *
 
 

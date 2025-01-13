@@ -3,7 +3,7 @@ import pathlib
 
 import numpy as np
 from autokeras import ImageRegressor
-from tensorflow.keras.preprocessing.image import *
+from keras.api.preprocessing.image import *
 
 
 def load_mapping(csv_path, faces_path):

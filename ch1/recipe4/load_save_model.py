@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer
 
 from keras.api.datasets import mnist
-from keras.src.models import Model
+from keras.api.models import Model
 
 from keras.src.layers import BatchNormalization
 from keras.src.layers import Conv2D

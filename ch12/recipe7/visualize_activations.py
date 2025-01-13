@@ -3,8 +3,8 @@ import imutils
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.applications import *
-from tensorflow.keras.models import Model
-from tensorflow.keras.preprocessing.image import *
+from keras.api.models import Model
+from keras.api.preprocessing.image import *
 
 
 class GradGAM(object):

@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 import tensorflow_hub as tfhub
-from tensorflow.keras.utils import get_file
+from keras.api.utils import get_file
 
 
 def produce_embeddings(model, input_frames, input_words):

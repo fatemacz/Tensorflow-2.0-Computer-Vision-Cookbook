@@ -6,9 +6,9 @@ import numpy as np
 from nltk.translate.bleu_score import corpus_bleu
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.applications.vgg16 import *
-from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.layers import *
-from tensorflow.keras.models import *
+from keras.src.callbacks import ModelCheckpoint
+from keras.src.layers import *
+from keras.src.models import *
 from tensorflow.keras.preprocessing.sequence import \
     pad_sequences
 

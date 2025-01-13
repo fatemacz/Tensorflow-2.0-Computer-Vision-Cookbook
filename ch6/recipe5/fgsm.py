@@ -1,7 +1,7 @@
 import cv2
 import tensorflow as tf
 from tensorflow.keras.applications.nasnet import *
-from tensorflow.keras.losses import CategoricalCrossentropy
+from keras.src.losses.losses import CategoricalCrossentropy
 
 
 def preprocess(image, target_shape):

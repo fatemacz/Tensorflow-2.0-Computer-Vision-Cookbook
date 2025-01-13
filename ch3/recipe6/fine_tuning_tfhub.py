@@ -5,11 +5,12 @@ from glob import glob
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import *
-from tensorflow.keras.optimizers import RMSprop
-from tensorflow.keras.preprocessing.image import *
+from keras.api.models import Sequential
+from keras.src.layers import *
+from keras.api.optimizers import RMSprop
+from keras.api.preprocessing.image import *
 from tensorflow_hub import KerasLayer
+from keras.src.legacy.preprocessing.image import ImageDataGenerator
 
 SEED = 999
 
@@ -54,8 +55,7 @@ y = LabelBinarizer().fit_transform(y)
                                      test_size=0.2,
                                      random_state=SEED)
 
-model_url = ('https://tfhub.dev/google/imagenet/'
-             'resnet_v1_152/feature_vector/4')
+model_url = ('https://www.kaggle.com/models/google/resnet-v1/TensorFlow2/152-feature-vector/2')
 
 base_model = KerasLayer(model_url, input_shape=(256, 256, 3))
 base_model.trainable = False

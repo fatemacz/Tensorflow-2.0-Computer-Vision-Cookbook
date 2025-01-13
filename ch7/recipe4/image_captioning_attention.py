@@ -7,16 +7,16 @@ import numpy as np
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
-from tensorflow.keras.applications.inception_v3 import *
-from tensorflow.keras.layers import *
+from keras.src.applications.inception_v3 import *
+from keras.src.layers import *
 from tensorflow.keras.losses import \
     SparseCategoricalCrossentropy
-from tensorflow.keras.models import Model
+from keras.api.models import Model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.sequence import \
     pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.utils import get_file
+from keras.api.utils import get_file
 
 AUTOTUNE = tf.data.experimental.AUTOTUNE
 

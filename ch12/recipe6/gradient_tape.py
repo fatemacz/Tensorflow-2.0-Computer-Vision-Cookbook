@@ -3,10 +3,10 @@ import time
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.datasets import fashion_mnist as fm
-from tensorflow.keras.layers import *
+from keras.src.layers import *
 from tensorflow.keras.losses import categorical_crossentropy
-from tensorflow.keras.models import Model
-from tensorflow.keras.optimizers import RMSprop
+from keras.api.models import Model
+from keras.api.optimizers import RMSprop
 from tensorflow.keras.utils import to_categorical
 
 

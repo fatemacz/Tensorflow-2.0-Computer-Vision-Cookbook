@@ -4,7 +4,7 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow.keras.applications.vgg16 import *
-from tensorflow.keras.models import *
+from keras.src.models import *
 from tensorflow.keras.preprocessing.sequence import \
     pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer

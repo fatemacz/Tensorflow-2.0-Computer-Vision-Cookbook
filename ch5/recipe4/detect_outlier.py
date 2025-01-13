@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
 from sklearn.model_selection import train_test_split
-from tensorflow.keras import Model
+from keras.api.models import Model
 from tensorflow.keras.datasets import fashion_mnist as fmnist
-from tensorflow.keras.layers import *
+from keras.src.layers import *
 
 SEED = 84
 np.random.seed(SEED)

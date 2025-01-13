@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import tensorflow_datasets as tfds
-from tensorflow.keras.layers import *
+from keras.src.layers import *
 from tensorflow.keras.losses import BinaryCrossentropy
-from tensorflow.keras.models import Model
+from keras.api.models import Model
 from tensorflow.keras.optimizers import Adam
 from tqdm import tqdm
 
